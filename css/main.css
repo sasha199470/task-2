@@ -31,11 +31,16 @@ body {
     margin-bottom: 1px;
     border: 1px solid #eee;
 }
-
 .map__cell_water {
     background-color: #65a6ff;
 }
 
 .map__cell_island {
     background-color: #fad946;
+}
+.passed {
+    background-color: orange;
+}
+.active {
+    background-color: brown;
 }
