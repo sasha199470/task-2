@@ -90,7 +90,6 @@
             cell,
             x,
             y;
-        console.log(map[0][0],map[0][1],map[0][2],map[0][3])
         for (y = 0; y < map.length; y++) {
             row = map[y];
             for (x = 0; x < row.length; x++) {
@@ -102,7 +101,6 @@
                 }
             }
         }
-        console.log(island);
     }
 
     /**
@@ -118,7 +116,6 @@
         let time = 0;
         let interval = 1000;
         className = domMap.children[1].children[0].className;
-        console.log(className)
         let prev = {x:0,y:0,status:0};
         while (way.length>0) {
             let point = way.shift();
@@ -127,9 +124,9 @@
                 addClass(domMap, point.x,point.y,point.status);
                 if (point.status&!prev.status){
                     island++;
-                    console.log(domMap.children[0].innerHTML = textCount + island)
+                    domMap.children[0].innerHTML = textCount + island;
                 }
-                prev = {x: point.x, y: point.y, status: point.status}
+                prev = {x: point.x, y: point.y, status: point.status};
             },time);
             time = time + interval;
         }
