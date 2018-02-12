@@ -5,60 +5,58 @@
     function bfs(map, x, y) {
         let arr = [];
         arr.push({x: x, y: y})
-        map[x][y] = WATER;
+        map[y][x] = WATER;
         while (arr.length >0){
             let point = arr.shift();
-            console.log(map.length);
-            console.log(map[0].length)
             switch(point.x) {
                 case 0:
                 {
-                    if (map[point.x + 1][point.y] === ISLAND) {
-                        map[point.x + 1][point.y] = WATER;
-                        arr.push({x: x+1, y: y})
+                    if (map[point.y][point.x + 1] === ISLAND) {
+                        map[point.y][point.x + 1] = WATER;
+                        arr.push({x: point.x+1, y: point.y})
                     }
                     break
                 }
-                case map[0].length:
-                    if (map[point.x - 1][point.y] === ISLAND) {
-                        map[point.x - 1][point.y] = WATER;
-                        arr.push({x: x-1, y: y})
+                case map[0].length-1:
+                    if (map[point.y][point.x - 1] === ISLAND) {
+                        map[point.y][point.x - 1] = WATER;
+                        arr.push({x: point.x-1, y: point.y})
                     }
                     break
                 default : {
-                    if (map[point.x + 1][point.y] === ISLAND) {
-                        map[point.x + 1][point.y] = WATER;
-                        arr.push({x: x+1, y: y})
+                    if (map[point.y][point.x + 1] === ISLAND) {
+                        map[point.y][point.x + 1] = WATER;
+                        arr.push({x: point.x+1, y: point.y})
                     }
-                    if (map[point.x - 1][point.y] === ISLAND) {
-                        map[point.x - 1][point.y] = WATER;
-                        arr.push({x: x-1, y: y})
+                    if (map[point.y][point.x - 1] === ISLAND) {
+                        map[point.y][point.x - 1] = WATER;
+                        arr.push({x: point.x-1, y: point.y})
                     }
                 }
             }
             switch(point.y) {
                 case 0:
                 {
-                    if (map[point.x][point.y + 1] === ISLAND) {
-                        map[point.x][point.y + 1] = WATER;
-                        arr.push({x: x, y: y + 1})
+                    if (map[point.y + 1][point.x] === ISLAND) {
+                        map[point.y + 1][point.x] = WATER;
+                        arr.push({x: point.x, y: point.y + 1})
                     }
                     break
                 }
-                case map.length:
-                    if (map[point.x][point.y - 1] === ISLAND) {
-                        map[point.x][point.y - 1] = WATER;
-                        arr.push({x: x, y: y - 1})
+                case map.length-1:
+                    if (map[point.y - 1][point.x] === ISLAND) {
+                        map[point.y - 1][point.x] = WATER;
+                        arr.push({x: point.x, y: point.y - 1})
                     }
                     break
                 default : {
-                    if (map[point.x][point.y + 1] === ISLAND) {
-                        map[point.x][point.y + 1] = WATER;
-                        arr.push({x: x, y: y + 1})
+                    if (map[point.y + 1][point.x] === ISLAND) {
+                        map[point.y + 1][point.x] = WATER;
+                        arr.push({x: point.x, y: point.y + 1})
                     }
-                    if (map[point.x][point.y - 1] === ISLAND) {
-                        map[point.x][point.y - 1] = WATER;
-                        arr.push({x: x, y: y - 1})
+                    if (map[point.y - 1][point.x] === ISLAND) {
+                        map[point.y - 1][point.x] = WATER;
+                        arr.push({x: point.x, y: point.y - 1})
                     }
                 }
             }
@@ -88,8 +86,6 @@
                 }
             }
         }
-        console.log(island);
-        // todo: подсчитать кол-во островов на карте
         return island;
     }
 
