@@ -4,7 +4,7 @@
 
     function bfs(map, x, y) {
         let arr = [];
-        arr.push({x: x, y: y})
+        arr.push({x: x, y: y});
         map[y][x] = WATER;
         while (arr.length >0){
             let point = arr.shift();
