@@ -6,7 +6,7 @@
         let arr = [];
         arr.push({x: x, y: y});
         map[y][x] = WATER;
-        while (arr.length >0){
+        while (arr.length >0) {
             let point = arr.shift();
             switch(point.x) {
                 case 0:
@@ -15,14 +15,14 @@
                         map[point.y][point.x + 1] = WATER;
                         arr.push({x: point.x+1, y: point.y})
                     }
-                    break
+                    break;
                 }
                 case map[0].length-1:
                     if (map[point.y][point.x - 1] === ISLAND) {
                         map[point.y][point.x - 1] = WATER;
                         arr.push({x: point.x-1, y: point.y})
                     }
-                    break
+                    break;
                 default : {
                     if (map[point.y][point.x + 1] === ISLAND) {
                         map[point.y][point.x + 1] = WATER;
@@ -71,14 +71,12 @@
      * @returns {number} кол-во островов
      */
     function solution(map) {
-        var island = 0;
-        var row,
-            cell,
-            x,
-            y;
-        for (y = 0; y < map.length; y++) {
+        let island = 0;
+        let row,
+            cell;
+        for (let y = 0; y < map.length; y++) {
             row = map[y];
-            for (x = 0; x < row.length; x++) {
+            for (let x = 0; x < row.length; x++) {
                 cell = row[x];
                 if (cell === ISLAND) {
                     island++;

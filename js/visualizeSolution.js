@@ -2,26 +2,24 @@
     var WATER = root.SHRI_ISLANDS.WATER;
     var ISLAND = root.SHRI_ISLANDS.ISLAND;
 
-    var classPassed = " passed";
-    var classActive = " active";
-    var className = "";
-    var textCount = "Count: ";
+    const classPassed = "passed";
+    const classActive = "active";
+    const textCount = "Count: ";
 
-    var way = [];
+    let way = [];
 
     function addClass(domMap, x, y, status) {
         let elem = domMap.children[y + 1].children[x];
         if (status){
-            elem.className += classPassed;
+            elem.classList.add(classPassed)
         }
         className = elem.className;
-        elem.className += classActive;
+        elem.classList.add(classActive)
 
     }
     function removeClass(domMap, x, y) {
         let elem = domMap.children[y + 1].children[x];
-        elem.className = className;
-
+        elem.classList.remove(classActive)
     }
     function bfs(map, x, y) {
         let arr = [];
@@ -85,14 +83,12 @@
         }
     }
     function solution(map) {
-        var island = 0;
-        var row,
-            cell,
-            x,
-            y;
-        for (y = 0; y < map.length; y++) {
+        let island = 0;
+        let row,
+            cell;
+        for (let y = 0; y < map.length; y++) {
             row = map[y];
-            for (x = 0; x < row.length; x++) {
+            for (let x = 0; x < row.length; x++) {
                 cell = row[x];
                 way.push({x: x, y: y, status:0});
                 if (cell === ISLAND) {
@@ -114,8 +110,7 @@
         let island = 0;
         let domMap = document.querySelector('.map');
         let time = 0;
-        let interval = 1000;
-        className = domMap.children[1].children[0].className;
+        let interval = 500;
         let prev = {x:0,y:0,status:0};
         while (way.length>0) {
             let point = way.shift();
