@@ -6,57 +6,55 @@
         let arr = [];
         arr.push({x: x, y: y});
         map[y][x] = WATER;
-        while (arr.length >0) {
+        while (arr.length > 0) {
             let point = arr.shift();
-            switch(point.x) {
-                case 0:
-                {
+            switch (point.x) {
+                case 0: {
                     if (map[point.y][point.x + 1] === ISLAND) {
                         map[point.y][point.x + 1] = WATER;
-                        arr.push({x: point.x+1, y: point.y})
+                        arr.push({x: point.x + 1, y: point.y});
                     }
                     break;
                 }
-                case map[0].length-1:
+                case map[0].length - 1:
                     if (map[point.y][point.x - 1] === ISLAND) {
                         map[point.y][point.x - 1] = WATER;
-                        arr.push({x: point.x-1, y: point.y})
+                        arr.push({x: point.x - 1, y: point.y});
                     }
                     break;
                 default : {
                     if (map[point.y][point.x + 1] === ISLAND) {
                         map[point.y][point.x + 1] = WATER;
-                        arr.push({x: point.x+1, y: point.y})
+                        arr.push({x: point.x + 1, y: point.y});
                     }
                     if (map[point.y][point.x - 1] === ISLAND) {
                         map[point.y][point.x - 1] = WATER;
-                        arr.push({x: point.x-1, y: point.y})
+                        arr.push({x: point.x - 1, y: point.y});
                     }
                 }
             }
-            switch(point.y) {
-                case 0:
-                {
+            switch (point.y) {
+                case 0: {
                     if (map[point.y + 1][point.x] === ISLAND) {
                         map[point.y + 1][point.x] = WATER;
-                        arr.push({x: point.x, y: point.y + 1})
+                        arr.push({x: point.x, y: point.y + 1});
                     }
-                    break
+                    break;
                 }
-                case map.length-1:
+                case map.length - 1:
                     if (map[point.y - 1][point.x] === ISLAND) {
                         map[point.y - 1][point.x] = WATER;
-                        arr.push({x: point.x, y: point.y - 1})
+                        arr.push({x: point.x, y: point.y - 1});
                     }
-                    break
+                    break;
                 default : {
                     if (map[point.y + 1][point.x] === ISLAND) {
                         map[point.y + 1][point.x] = WATER;
-                        arr.push({x: point.x, y: point.y + 1})
+                        arr.push({x: point.x, y: point.y + 1});
                     }
                     if (map[point.y - 1][point.x] === ISLAND) {
                         map[point.y - 1][point.x] = WATER;
-                        arr.push({x: point.x, y: point.y - 1})
+                        arr.push({x: point.x, y: point.y - 1});
                     }
                 }
             }
@@ -80,7 +78,7 @@
                 cell = row[x];
                 if (cell === ISLAND) {
                     island++;
-                    bfs(map,x,y);
+                    bfs(map, x, y);
                 }
             }
         }
