@@ -6,10 +6,10 @@
     const classActive = 'active';
     const textCount = 'Count: ';
 
-    let way = [];
+    const way = [];
 
     function addClass(domMap, x, y, status) {
-        let elem = domMap.children[y + 1].children[x];
+        const elem = domMap.children[y + 1].children[x];
         if (status) {
             elem.classList.add(classPassed);
         }
@@ -18,7 +18,7 @@
     }
 
     function removeClass(domMap, x, y) {
-        let elem = domMap.children[y + 1].children[x];
+        const elem = domMap.children[y + 1].children[x];
         elem.classList.remove(classActive);
     }
 
@@ -83,7 +83,6 @@
     }
 
     function solution(map) {
-        let island = 0;
         let row,
             cell;
         for (let y = 0; y < map.length; y++) {
@@ -92,7 +91,6 @@
                 cell = row[x];
                 way.push({x: x, y: y, status: 0});
                 if (cell === ISLAND) {
-                    island++;
                     bfs(map, x, y);
                 }
             }
@@ -108,12 +106,12 @@
     function visualizeSolution(map) {
         solution(map);
         let island = 0;
-        let domMap = document.querySelector('.map');
+        const domMap = document.querySelector('.map');
         let time = 0;
-        let interval = 500;
+        const interval = 500;
         let prev = {x: 0, y: 0, status: 0};
         while (way.length > 0) {
-            let point = way.shift();
+            const point = way.shift();
             setTimeout(() => {
                 removeClass(domMap, prev.x, prev.y);
                 addClass(domMap, point.x, point.y, point.status);

@@ -3,11 +3,11 @@
     var ISLAND = root.SHRI_ISLANDS.ISLAND;
 
     function bfs(map, x, y) {
-        let arr = [];
+        const arr = [];
         arr.push({x: x, y: y});
         map[y][x] = WATER;
         while (arr.length > 0) {
-            let point = arr.shift();
+            const point = arr.shift();
             switch (point.x) {
                 case 0: {
                     if (map[point.y][point.x + 1] === ISLAND) {
